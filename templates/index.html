@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#f3f1e8">
-<title>{{ cfg.salon }} — Hair Salon</title>
-<meta name="description" content="Classic cuts, sharp fades, beard grooming and color at {{ cfg.salon }}. Book your chair online.">
+<title>{{ cfg.salon }} -- Hair Salon</title>
+<meta name="description" content="Expert cuts, clean shaves, beard styling and more at {{ cfg.salon }}. Book your appointment online.">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>S</text></svg>">
 <script>window.CFG = {{ cfg|tojson }};</script>
@@ -30,10 +30,11 @@
     <a href="/booking">Book</a>
     <a href="/reviews">Reviews</a>
     <a href="#location">Location</a>
+    <a href="https://www.instagram.com/star_007_salon" target="_blank" rel="noopener">Instagram</a>
     <a class="nav-login" href="/admin">Login</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <a class="nav-cta" href="/booking">Book Now <span aria-hidden="true">→</span></a>
+    <a class="nav-cta" href="/booking">Book Now →</a>
     <button id="menu-btn" aria-label="Open navigation">Menu</button>
   </div>
 </nav>
@@ -46,6 +47,7 @@
   <a href="/booking">Book</a>
   <a href="/reviews">Reviews</a>
   <a href="#location">Location</a>
+  <a href="https://www.instagram.com/star_007_salon" target="_blank" rel="noopener">Instagram</a>
   <a href="/admin">Login</a>
 </div>
 
@@ -53,12 +55,12 @@
 <header class="hero" id="top">
   <div class="bg"></div><div class="shade"></div>
   <div class="hero-copy">
-    <p class="hero-kicker">{{ cfg.salon }} — Your neighbourhood barber</p>
+    <p class="hero-kicker">{{ cfg.salon }} -- Your neighbourhood barber</p>
     <h1><span>Great hair,</span><br><strong>every time.</strong></h1>
-    <p class="hero-description">Expert cuts, clean shaves, beard styling and more. Walk in or book your chair online — no fuss.</p>
+    <p class="hero-description">Expert cuts, clean shaves, beard styling and more. Walk in or book your chair online -- no fuss.</p>
     <div class="hero-actions">
-      <a class="btn btn-pink" href="/booking"> Book a chair <span aria-hidden="true">→</span></a>
-      <a class="btn btn-ghost wa-link" href="#"> WhatsApp us</a>
+      <a class="btn btn-pink" href="/booking">Book a chair →</a>
+      <a class="btn btn-ghost wa-link" href="#">WhatsApp us</a>
     </div>
   </div>
 </header>
@@ -78,7 +80,7 @@
       {% set day_names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
       {% for day in range(7) %}
       {% set day_hours = cfg.hours[day|string] %}
-      <div><span>{{ day_names[day] }}</span><time>{% if day_hours %}{{ "%02d:00"|format(day_hours[0]) }}–{{ "%02d:00"|format(day_hours[1]) }}{% else %}Closed{% endif %}</time></div>
+      <div><span>{{ day_names[day] }}</span><time>{% if day_hours %}{{ "%02d:00"|format(day_hours[0]) }}--{{ "%02d:00"|format(day_hours[1]) }}{% else %}Closed{% endif %}</time></div>
       {% endfor %}
       {% else %}
       <p class="empty-state">Opening hours have not been added yet.</p>
@@ -94,8 +96,14 @@
 <footer>
   <p class="footer-brand">{{ cfg.salon }} <span>· HAIR SALON</span></p>
   <p style="margin-top:8px">© {{ cfg.year }} {{ cfg.salon }}. Good cuts, good people.</p>
-  <p class="footer-links"><a href="/services">Services</a><a href="/gallery">Gallery</a><a href="/admin">Staff login</a></p>
-  <p class="footer-links"><a href="">Build By the Team Vybex/a>
+  <p class="footer-links">
+    <a href="/services">Services</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/reviews">Reviews</a>
+    <a href="/booking">Book</a>
+    <a href="https://www.instagram.com/star_007_salon" target="_blank" rel="noopener">Instagram</a>
+    <a href="/admin">Staff login</a>
+  </p>
 </footer>
 
 <!-- WhatsApp FAB + sticky mobile CTA -->
@@ -103,7 +111,7 @@
   <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 18 3h-2zm0 22.5c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4 1.3 1.2-3.9-.3-.4c-1.2-1.8-1.9-3.9-1.9-6.1C5.3 9.5 10.1 4.8 16 4.8S26.7 9.5 26.7 15.2 21.9 25.5 16 25.5zm5.8-7.7c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2 .1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 <div class="cta-bar">
-  <a class="btn btn-pink" href="/booking"> Book a chair</a>
+  <a class="btn btn-pink" href="/booking">Book a chair</a>
   <a class="btn btn-ghost wa-link" href="#">WhatsApp</a>
 </div>
 
