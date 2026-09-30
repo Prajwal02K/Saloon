@@ -1,0 +1,17 @@
+﻿# Secrets - never commit these
+.env
+serviceAccountKey.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Uploads
+static/images/uploads/
+
+# Data
+data/

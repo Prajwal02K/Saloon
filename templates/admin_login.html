@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f3f1e8">
+<title>{{ salon_name }} — Admin Login</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav>
+  <a class="logo" href="/" aria-label="{{ salon_name }} home"><span class="logo-mark">*</span><span class="logo-type">{{ salon_name }}<small>HAIR SALON</small></span></a>
+  <div class="nav-links">
+    <a href="/">Home</a><a href="/services">Services</a><a href="/gallery">Gallery</a>
+    <a href="/booking">Book</a><a href="/reviews">Reviews</a><a href="/#location">Location</a>
+  </div>
+  <a class="nav-cta" href="/booking">Book now</a>
+  <button id="menu-btn" aria-label="Open navigation">Menu</button>
+</nav>
+<div id="mobile-menu">
+  <button id="menu-close" class="close" aria-label="Close navigation">Close</button>
+  <a href="/">Home</a><a href="/services">Services</a><a href="/gallery">Gallery</a>
+  <a href="/booking">Book</a><a href="/reviews">Reviews</a><a href="/#location">Location</a>
+</div>
+
+<main class="admin-wrap">
+  <div class="login-box">
+    <h2 class="chrome" style="text-align:center;margin-bottom:6px">STAFF LOGIN</h2>
+    <p style="text-align:center;color:var(--muted);font-size:.85rem;margin-bottom:18px">Sign in to manage your salon.</p>
+    <form id="login-form">
+      <div class="field"><label for="admin-username">Username</label><input id="admin-username" autocomplete="username" required></div>
+      <div class="field"><label for="admin-pw">Password</label><input type="password" id="admin-pw" autocomplete="current-password" required></div>
+      <button class="btn btn-pink" style="width:100%">Sign in →</button>
+    </form>
+    {% if can_signup %}
+    <p class="auth-switch">First time here? <a href="/admin/signup">Create admin account</a></p>
+    {% elif first_admin %}
+    <p class="auth-note">First-time setup: add a private <code>ADMIN_SETUP_KEY</code> to <code>.env</code>, then <a href="/admin/signup">continue to signup</a>.</p>
+    {% else %}
+    <p class="auth-note">Admin accounts are created by the salon owner.</p>
+    {% endif %}
+  </div>
+</main>
+
+<div id="toast"></div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
