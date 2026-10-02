@@ -1,10 +1,14 @@
 import sys
 import os
 
-# Add the project root to Python path so Flask can find all modules
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add project root to path
+root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, root)
+
+# Change working directory so Flask finds templates/static
+os.chdir(root)
 
 from app import app
 
-# Vercel needs the app object named 'app'
-handler = app
+# Vercel handler
+app.debug = False
